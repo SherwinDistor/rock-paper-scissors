@@ -16,9 +16,9 @@ let getComputerChoice = () => {
 }
 
 // Get player choice
-let getHumanChoice = prompt("Rock, Paper, or Scissors?").toLowerCase();
-
-console.log(getHumanChoice);
+let getHumanChoice = () => {
+    return prompt("Rock, Paper, or Scissors?").toLowerCase();
+}
 
 // Evaluate who the winner is
 function playRound(humanChoice, computerChoice) {
@@ -46,5 +46,25 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-console.log(playRound(getHumanChoice, getComputerChoice()));
+// Game logic for playing 5 rounds
+function playGame() {
+    let gameRounds = 1;
 
+    while (gameRounds <= 5) {
+        console.log(playRound(getHumanChoice(), getComputerChoice()))
+        gameRounds++
+        console.log(humanScore)
+        console.log(computerScore)
+    }
+
+    if (humanScore > computerScore) {
+        console.log(`Player wins with a score of ${humanScore}`)
+    } else if (computerScore > humanScore) {
+        console.log(`Computer wins with a score of ${computerScore}`)
+    } else {
+        console.log(`It's a tie with the score of ${humanScore}`)
+    }
+}
+
+// Calling the playGame function
+playGame()
