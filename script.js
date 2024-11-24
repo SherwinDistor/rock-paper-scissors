@@ -1,21 +1,22 @@
 // Get random computer choice
 let getComputerChoice = () => {
-    let choice = Math.floor(Math.random() * 3) + 1;
+    let computerChoice = Math.floor(Math.random() * 3) + 1;
 
-    if (choice === 1) {
+    if (computerChoice === 1) {
         return "Rock"
-    } else if (choice === 2) {
+    } else if (computerChoice === 2) {
         return "Paper"
     } else {
-        return "Scissor"
+        return "Scissors"
     }
 }
 
-console.log(getComputerChoice())
+console.log(getComputerChoice());
 
 // Get player choice
+let getHumanChoice = prompt("Rock, Paper, or Scissors?");
 
-
+console.log(getHumanChoice);
 
 // Evaluate who the winner is
 //     increase score count
