@@ -1,3 +1,8 @@
+// Declare variables from DOM
+const btnRock = document.querySelector("#rock");
+const btnPaper = document.querySelector("#paper");
+const btnScissors = document.querySelector("#scissors");
+
 // Set player and computer score
 let humanScore = 0;
 let computerScore = 0;
