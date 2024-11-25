@@ -1,0 +1,20 @@
+#scores {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+
+#btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+button {
+    font-size: large;
+    height: 50px;
+    width: 100px;
+    background: #ffb71b;
+    border-radius: 10px;
+}
