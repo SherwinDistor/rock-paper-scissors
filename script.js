@@ -1,6 +1,8 @@
 // Declare variables from DOM
 const btnChoice = document.querySelector("#btn-container");
-
+const winMessage = document.querySelector("#win-message");
+const humanDisplayScore = document.querySelector("#player-score");
+const computerDisplayScore = document.querySelector("#computer-score");
 
 // Set player and computer score
 let humanScore = 0;
@@ -28,45 +30,53 @@ function playRound(humanChoice, computerChoice) {
 
     if (humanChoice === "rock" && computerChoice === "paper") {
         computerScore++;
+        winMessage.textContent = "Computer wins! Paper beats Rock.";
         return "Computer wins! Paper beats Rock.";
     } else if (humanChoice === "paper" && computerChoice === "scissors") {
         computerScore++;
+        winMessage.textContent = "Computer wins! Scissors beats Paper.";
         return "Computer wins! Scissors beats Paper.";
     } else if (humanChoice === "scissors" && computerChoice === "rock") {
         computerScore++;
+        winMessage.textContent = "Computer wins! Rock beats Scissors.";
         return "Computer wins! Rock beats Scissors.";
     } else if (humanChoice === "paper" && computerChoice === "rock") {
         humanScore++;
+        winMessage.textContent = "Player wins! Paper beats Rock.";
         return "Player wins! Paper beats Rock.";
     } else if (humanChoice === "scissors" && computerChoice === "paper") {
         humanScore++;
+        winMessage.textContent = "Player wins! Scissors beats Paper.";
         return "Player wins! Scissors beats Paper.";
     } else if (humanChoice === "rock" && computerChoice === "scissors") {
         humanScore++;
-        return "Player wins! Rock beats Scissors."
+        winMessage.textContent = "Player wins! Rock beats Scissors.";
+        return "Player wins! Rock beats Scissors.";
     } else {
-        return "It's a tie!"
+        winMessage.textContent = "It's a tie!";
+        return "It's a tie!";
     }
 }
 
 // Game logic for playing 5 rounds
 function playGame() {
-        console.log(playRound(getHumanChoice, getComputerChoice()))
-        console.log(humanScore)
-        console.log(computerScore)
+        console.log(playRound(getHumanChoice, getComputerChoice()));
+        console.log(humanScore);
+        humanDisplayScore.textContent = humanScore;
+        console.log(computerScore);
+        computerDisplayScore.textContent = computerScore;
+
 
     if (humanScore === 5) {
         console.log(`Player wins with a score of ${humanScore}`)
+        winMessage.textContent = `Player wins with a score of ${humanScore}`;
     } else if (computerScore === 5) {
         console.log(`Computer wins with a score of ${computerScore}`)
+        winMessage.textContent = `Computer wins with a score of ${computerScore}`;
     } else {
         console.log(`Keep playing until someone reaches 5 points!`)
     }
 }
-
-// Calling the playGame function
-// playGame()
-
 
 // Add event listener to btn-container
 btnChoice.addEventListener('click', e => {

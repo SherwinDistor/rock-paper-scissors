@@ -1,9 +1,49 @@
 #scores {
     display: flex;
-    justify-content: space-between;
-
+    justify-content: space-evenly;
+    padding: 50px;
 }
 
+#score-stack {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+#player, #computer, #player-score, #computer-score {
+    margin: 5px 0;
+}
+
+#win-message {
+    height: 60px;
+    margin: 50px auto;
+    font-size: 25px;
+    text-align: center;
+}
+
+
+#choice-container {
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    height: 100px;
+    width: 600px;
+}
+
+#player-choice {
+    height: 100px;
+    width: 250px;
+    border: 2px solid black;
+}
+
+#computer-choice {
+    height: 100px;
+    width: 250px;
+    border: 2px solid black;
+}
 
 #btn-container {
     display: flex;
