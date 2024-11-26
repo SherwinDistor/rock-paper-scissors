@@ -1,7 +1,6 @@
 // Declare variables from DOM
-const btnRock = document.querySelector("#rock");
-const btnPaper = document.querySelector("#paper");
-const btnScissors = document.querySelector("#scissors");
+const btnChoice = document.querySelector("#btn-container");
+
 
 // Set player and computer score
 let humanScore = 0;
@@ -21,9 +20,8 @@ let getComputerChoice = () => {
 }
 
 // Get player choice
-let getHumanChoice = () => {
-    return prompt("Rock, Paper, or Scissors?").toLowerCase();
-}
+let getHumanChoice = '';
+
 
 // Evaluate who the winner is
 function playRound(humanChoice, computerChoice) {
@@ -53,23 +51,36 @@ function playRound(humanChoice, computerChoice) {
 
 // Game logic for playing 5 rounds
 function playGame() {
-    let gameRounds = 1;
-
-    while (gameRounds <= 5) {
-        console.log(playRound(getHumanChoice(), getComputerChoice()))
-        gameRounds++
+        console.log(playRound(getHumanChoice, getComputerChoice()))
         console.log(humanScore)
         console.log(computerScore)
-    }
 
-    if (humanScore > computerScore) {
+    if (humanScore === 5) {
         console.log(`Player wins with a score of ${humanScore}`)
-    } else if (computerScore > humanScore) {
+    } else if (computerScore === 5) {
         console.log(`Computer wins with a score of ${computerScore}`)
     } else {
-        console.log(`It's a tie with the score of ${humanScore}`)
+        console.log(`Keep playing until someone reaches 5 points!`)
     }
 }
 
 // Calling the playGame function
 // playGame()
+
+
+// Add event listener to btn-container
+btnChoice.addEventListener('click', e => {
+    if (e.target.matches("#rock")) {
+        getHumanChoice = "rock";
+    } else if (e.target.matches("paper")) {
+        getHumanChoice = "paper";
+    } else {
+        getHumanChoice = "scissors";
+    }
+
+    playGame();
+});
+
+// User clicks button either rock paper or scissor
+// Selection is recorded in a variable
+// Play round is triggered
